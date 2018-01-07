@@ -1,0 +1,12 @@
+version: "3"
+services:
+  backend:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    image: tiagorosadacosta/backend
+    ports:
+      - 80:3000
+    container_name: backend
+    env_file:
+      - .env-prd

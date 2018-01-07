@@ -1,0 +1,24 @@
+version: "3"
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/home/app/backend/
+      - /home/app/backend/node_modules
+    command: node_modules/.bin/nodemon --exec npm start
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+    container_name: todo_backend
+    env_file:
+      - .env-dev
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+networks:
+  dev:
+    driver: bridge
