@@ -1,5 +1,5 @@
 import NotFoundException from "../exceptions/NotFoundException";
-import TaskDao from "../daos/TaskDao";
+import TaskDao from "../dao/TaskDao";
 
 export default class TaskService {
 

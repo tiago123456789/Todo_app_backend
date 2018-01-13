@@ -1,6 +1,6 @@
 import Senha from "./Senha";
 import Jwt from "../lib/Jwt";
-import UseDao from "../daos/UseDao";
+import UseDao from "../dao/UseDao";
 
 export default class User {
 

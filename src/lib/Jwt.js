@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import Constantes from "../configs/Constantes";
+import Constantes from "../config/Constantes";
 
 export default class Jwt {
 

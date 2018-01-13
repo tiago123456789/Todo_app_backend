@@ -1,4 +1,4 @@
-import Constantes from "../configs/Constantes";
+import Constantes from "../config/Constantes";
 import Jwt from "../lib/Jwt";
 
 /**
