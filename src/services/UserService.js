@@ -57,7 +57,6 @@ export default class User {
      */
     async _verificarEmailEstaEmUso(email) {
         const emailEmUso = await this._dao.findBy({ email: email });
-
         if (emailEmUso) {
             throw new Error("Email está em uso.");
         }
