@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "transpile": "babel src --out-dir build",
-    "start": "NODE_ENV=prd nodejs ./build/index.js",
+    "start": "NODE_ENV=prd node ./build/index.js",
     "start:dev": "babel-node ./src/index.js" 
   },
   "keywords": [],
