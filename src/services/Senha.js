@@ -1,6 +1,9 @@
-import bcrypt from "bcrypt";
 
 export default class Senha {
+
+    constructor(bcrypt) {
+        this._bcrypt = bcrypt;
+    }
 
     /**
      * @description Obtêm o salt para colocar na senha.
@@ -10,7 +13,7 @@ export default class Senha {
     _getSalt() {
         return new Promise((resolve, reject) => {
             const saltRounds = 10;
-            bcrypt.genSalt(saltRounds, function(err, salt) {
+            this._bcrypt.genSalt(saltRounds, function(err, salt) {
                 if(err) reject(err);
                 else resolve(salt);
             });
@@ -25,7 +28,7 @@ export default class Senha {
     encode(valor) {
         return new Promise(async (resolve, reject) => {
            const salt = await this._getSalt();
-           bcrypt.hash(valor, salt, (err, hash) => {
+           this._bcrypt.hash(valor, salt, (err, hash) => {
               if(err) reject(err);
               else resolve(hash);
            });
@@ -40,7 +43,7 @@ export default class Senha {
      */
     isSenhaValid(senha, hashSenha) {
         return new Promise((resolve, reject) => {
-            bcrypt.compare(senha, hashSenha, (err, result) => {
+            this._bcrypt.compare(senha, hashSenha, (err, result) => {
                 if (err) reject(err);
                 else resolve(result);
             });

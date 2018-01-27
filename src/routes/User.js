@@ -4,10 +4,12 @@ import userDao from "./../collections/User";
 import TaskController from "../controllers/TaskController";
 import TaskService from "../services/TaskService";
 import AuthMiddleware from "../middlewares/AuthMiddleware";
+import Senha from "../services/Senha";
+import bcrypt from "bcrypt";
 
 export default (express) => {
     const router = express.Router();
-    const userService = new UserService(userDao);
+    const userService = new UserService(userDao, new Senha(bcrypt));
     const userController = new UserController(userService);
     const taskService = new TaskService(userDao);
     const taskController = new TaskController(taskService);
@@ -35,7 +37,7 @@ export default (express) => {
     /**
      * @description Rota para registrar um novo usuário.
      */
-    router.post("/", (request, response) => userController.register(request, response));
+    router.post("/register", (request, response) => userController.register(request, response));
 
     /**
      * @description Rota de autenticação.

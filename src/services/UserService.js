@@ -1,12 +1,11 @@
-import Senha from "./Senha";
 import Jwt from "../lib/Jwt";
 import UseDao from "../dao/UseDao";
 
 export default class User {
 
-    constructor(dao) {
+    constructor(dao, senhaService) {
         this._dao = new UseDao(dao);
-        this._senhaServie = new Senha();
+        this._senhaService = senhaService;
     }
 
     /**
@@ -22,20 +21,17 @@ export default class User {
             throw new Error("Dados inválidos!");
         }
 
-        const isSenhaValid = await this._senhaServie.isSenhaValid(senha, userAutenticado.senha);
+        const isSenhaValid = await this._senhaService.isSenhaValid(senha, userAutenticado.senha);
 
         if (!isSenhaValid) {
             throw new Error("Dados inválidos!");
         }
 
-        const token = await Jwt.build({
+        return await Jwt.build({
             email: userAutenticado.email,
             nome: userAutenticado.nome,
             id: userAutenticado._id
         });
-
-        return token;
-
     }
 
     /**
@@ -45,7 +41,7 @@ export default class User {
      */
     async register(newUser) {
         await this._verificarEmailEstaEmUso(newUser.email);
-        newUser.senha = await this._senhaServie.encode(newUser.senha);
+        newUser.senha = await this._senhaService.encode(newUser.senha);
         await this._dao.create(newUser);
     }
 
@@ -61,5 +57,4 @@ export default class User {
             throw new Error("Email está em uso.");
         }
     }
-
 }

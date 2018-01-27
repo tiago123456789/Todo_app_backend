@@ -12,7 +12,7 @@ export default class TaskService {
      * @returns {Promise.<*>}
      */
     async findAll(idUser) {
-        return await this._dao.findAll();
+        return await this._dao.findAll({ _id: idUser });
     }
 
     /**
