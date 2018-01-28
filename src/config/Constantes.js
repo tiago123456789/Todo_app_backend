@@ -4,19 +4,22 @@ const constantes = {
         // URL_DB: "mongodb://mongodb:27017/todo",
         URL_DB: "mongodb://localhost/todo",
         TIME_EXPIRED_TOKEN: "1h",
-        HEADER_PARAM_AUTH: "Authorization"
+        HEADER_PARAM_AUTH: "Authorization",
+        TOKEN_SECRET: "secret"
     },
     prd: {
         PORT: process.env.PORT,
         URL_DB: `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ds239587.mlab.com:39587/todo_app_db`,
         TIME_EXPIRED_TOKEN: "1h",
-        HEADER_PARAM_AUTH: "Authorization"
+        HEADER_PARAM_AUTH: "Authorization",
+        TOKEN_SECRET: "secret"
     },
     test: {
         PORT: process.env.PORT,
-        URL_DB: "mongodb://mongodb:27017/todo",
+        URL_DB: "mongodb://localhost:27017/todo_test",
         TIME_EXPIRED_TOKEN: "1h",
-        HEADER_PARAM_AUTH: "Authorization"
+        HEADER_PARAM_AUTH: "Authorization",
+        TOKEN_SECRET: "secret"
     }
 };
 

@@ -7,8 +7,9 @@
     "transpile": "babel src --out-dir build",
     "start": "NODE_ENV=prd node ./build/index.js",
     "start:dev": "NODE_ENV=dev nodemon --exec babel-node ./src/index.js",
-    "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
-    "test:unit": "mocha --timeout 10000 --opts test/unit/mocha.opts test/unit/**/*.test.js"
+    "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.test.js",
+    "test:unit": "mocha --timeout 10000 --opts test/unit/mocha.opts test/unit/**/*.test.js",
+    "test": "npm run test:unit && npm run test:integration"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,7 @@
     "chai": "^4.1.2",
     "mocha": "^5.0.0",
     "nodemon": "^1.14.8",
-    "sinon": "^4.2.1"
+    "sinon": "^4.2.1",
+    "supertest": "^3.0.0"
   }
 }

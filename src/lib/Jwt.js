@@ -9,7 +9,7 @@ export default class Jwt {
      * @returns {Promise.<*>}
      */
     static async build(conteudo) {
-        return await jwt.sign(conteudo, process.env.SECRET, { expiresIn: Constantes.TIME_EXPIRED_TOKEN });
+        return await jwt.sign(conteudo, process.env.SECRET || Constantes.TOKEN_SECRET, { expiresIn: Constantes.TIME_EXPIRED_TOKEN });
     }
 
     /**

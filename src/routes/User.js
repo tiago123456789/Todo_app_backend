@@ -37,7 +37,7 @@ export default (express) => {
     /**
      * @description Rota para registrar um novo usuário.
      */
-    router.post("/register", (request, response) => userController.register(request, response));
+    router.post("/", (request, response) => userController.register(request, response));
 
     /**
      * @description Rota de autenticação.
