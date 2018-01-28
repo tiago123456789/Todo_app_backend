@@ -1,8 +1,7 @@
 const constantes = {
     dev: {
         PORT: process.env.PORT || 3000,
-        // URL_DB: "mongodb://mongodb:27017/todo",
-        URL_DB: "mongodb://localhost/todo",
+        URL_DB: "mongodb://mongodb:27017/todo",
         TIME_EXPIRED_TOKEN: "1h",
         HEADER_PARAM_AUTH: "Authorization",
         TOKEN_SECRET: "secret"
@@ -16,7 +15,7 @@ const constantes = {
     },
     test: {
         PORT: process.env.PORT,
-        URL_DB: "mongodb://localhost:27017/todo_test",
+        URL_DB: "mongodb://mongodb:27017/todo_test",
         TIME_EXPIRED_TOKEN: "1h",
         HEADER_PARAM_AUTH: "Authorization",
         TOKEN_SECRET: "secret"
