@@ -5,9 +5,11 @@ import rotasApp from "./../routes/Index";
 import "./Database";
 
 const app = express();
+
 /**
  * @description Define middleware que faz parse dos dados para json.
  */
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 /**

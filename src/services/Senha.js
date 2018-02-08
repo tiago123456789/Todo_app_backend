@@ -44,8 +44,11 @@ export default class Senha {
     isSenhaValid(senha, hashSenha) {
         return new Promise((resolve, reject) => {
             this._bcrypt.compare(senha, hashSenha, (err, result) => {
-                if (err) reject(err);
-                else resolve(result);
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
             });
         });
     }

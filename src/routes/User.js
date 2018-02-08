@@ -35,14 +35,14 @@ export default (express) => {
     router.put("/:id/tasks/:idTask", AuthMiddleware, (request, response) => taskController.update(request, response));
 
     /**
-     * @description Rota para registrar um novo usuário.
-     */
-    router.post("/", (request, response) => userController.register(request, response));
-
-    /**
      * @description Rota de autenticação.
      */
     router.post("/auth", (request, response) => userController.auth(request, response));
+
+    /**
+     * @description Rota para registrar um novo usuário.
+     */
+    router.post("/", (request, response) => userController.register(request, response));
 
     return router;
 }

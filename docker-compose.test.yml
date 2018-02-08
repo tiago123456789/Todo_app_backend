@@ -4,21 +4,22 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
-    volumes:
-      - .:/home/app/backend/
-      - /home/app/backend/node_modules
-    command: node_modules/.bin/nodemon --exec npm run test
-    ports:
-      - 3000:3000
+    command: node_modules/.bin/nodemon --exec npm test
+      - 3001:3000
     depends_on:
       - mongodb
-    container_name: todo_backend
+    container_name: todo_backend_test
     env_file:
       - .env-test
+    networks:
+      - test
   mongodb:
     image: mongo
     ports:
-      - 27017:27017
+      - 27000:27017
+    container_name: mongo_test
+    networks:
+      - test
 networks:
-  dev:
+  test:
     driver: bridge

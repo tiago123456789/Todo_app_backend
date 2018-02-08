@@ -15,7 +15,7 @@ const constantes = {
     },
     test: {
         PORT: process.env.PORT,
-        URL_DB: "mongodb://mongodb:27017/todo_test",
+        URL_DB: "mongodb://mongodb:27000/todo",
         TIME_EXPIRED_TOKEN: "1h",
         HEADER_PARAM_AUTH: "Authorization",
         TOKEN_SECRET: "secret"
