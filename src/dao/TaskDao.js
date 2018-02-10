@@ -41,7 +41,7 @@ export default class TaskDao {
      * @returns {Promise.<*>}
      */
     async create(idUser, newTask) {
-        return await this._dao.update({ _id: idUser }, { $push: { tasks: newTask }});
+        return await this._dao.update({ _id: idUser }, { $addToSet: { "tasks": newTask }});
     }
 
     /**
