@@ -6,5 +6,4 @@ const taskSchema  = new mongoose.Schema({
     created_at: { type: Date, default: Date.now }
 });
 
-
 export default taskSchema;

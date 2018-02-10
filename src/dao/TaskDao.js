@@ -50,6 +50,6 @@ export default class TaskDao {
      * @returns {Promise.<*>}
      */
     async findBy(condicaoBusca) {
-        return await this._dao.findBy(condicaoBusca);
+        return await this._dao.findOne(condicaoBusca);
     }
 }
