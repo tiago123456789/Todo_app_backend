@@ -31,7 +31,7 @@ export default class TaskDao {
      * @returns {Promise.<*>}
      */
     async update(idUser, idTask, contentModified) {
-        return await this._dao.update({ _id: idUser, "tasks._id": idTask }, { $set: { tasks: contentModified }});
+        return await this._dao.update({ _id: idUser, "tasks._id": idTask }, { $set: { "tasks.$": contentModified }});
     }
 
     /**
